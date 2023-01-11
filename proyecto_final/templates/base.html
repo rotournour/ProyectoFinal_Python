@@ -21,23 +21,23 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Menu principal</a>
                     </li>
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/clothes/listado_clothes"> Ropa disponible </a>
+                        <a class="nav-link" href="/clothes/listado_categories"> Categorias</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/clothes/vender"> Publica tus prendas </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/sales/order"> Compra tus prendas! </a>
-                    </li>
+                        <a class="nav-link" href="/sales/order"> Compra tus prendas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/clothes/listado_categories"> Categorias de productos</a>
+                        <a class="nav-link" href="/clothes/listado_clothes"> Ropa disponible </a>
                     </li>
                     <li class="navbar bg-body-tertiary">
                         <div class="container-fluid">
-                            <form class="d-flex" role="search">
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <form class="form-inline my-2 my-lg-0" action="/clothes/listado_clothes" method="GET">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
                                 <button class="btn btn-outline-success" type="submit">Search</button>
                             </form>
                         </div>

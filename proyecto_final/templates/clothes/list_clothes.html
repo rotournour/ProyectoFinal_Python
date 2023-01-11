@@ -14,6 +14,7 @@
         <div class="card" style="width: 18rem;">
             <div class="card-body">
             <h5 class="card-title">{{clothing.name}}</h5>
+            <p class="card-text">Su categoria es {{clothing.category}}</p>
             <p class="card-text">Su precio es ${{clothing.price}}</p>
             {% if clothing.stock == True %}
                 <p>Actualmente hay stock</p>
@@ -23,7 +24,6 @@
             <a href="/sales/order/" class="btn btn-primary">Comprar</a>
             </div>
         </div>
-
     {% endfor %}
 
 {% endblock %}

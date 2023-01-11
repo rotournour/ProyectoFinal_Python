@@ -23,5 +23,8 @@ class Sales(models.Model):
         db_table = "Sales"
         verbose_name = 'Sales'
         verbose_name_plural = 'Sales'
+        
+    def __str__(self):
+        return f'{self.clothes_name} - {self.client} - {self.payment}' 
 
 
