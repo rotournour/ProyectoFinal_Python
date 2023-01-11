@@ -1,29 +1,29 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Listado de productos
+Listado de productos
 {% endblock %}
 
 {% block content %}
 
-    <h1>Las prendas disponibles en la pagina</h1>
-    <h2>Vender tu producto </h2> <a href="/clothes/vender/" class="btn btn-primary">Publicar</a>
-    {% for clothing in clothes %}
+<h1>Las prendas disponibles en la pagina</h1>
+<h2>Vender tu producto </h2> <a href="/clothes/vender/" class="btn btn-primary">Publicar</a>
+{% for clothing in clothes %}
 
 
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-            <h5 class="card-title">{{clothing.name}}</h5>
-            <p class="card-text">Su categoria es {{clothing.category}}</p>
-            <p class="card-text">Su precio es ${{clothing.price}}</p>
-            {% if clothing.stock == True %}
-                <p>Actualmente hay stock</p>
-            {% else %}
-                <p>Actualmente, nos quedamos sin stock</p>
-            {% endif %}
-            <a href="/sales/order/" class="btn btn-primary">Comprar</a>
-            </div>
-        </div>
-    {% endfor %}
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{clothing.name}}</h5>
+        <p class="card-text">Su categoria es {{clothing.category}}</p>
+        <p class="card-text">Su precio es ${{clothing.price}}</p>
+        {% if clothing.stock == True %}
+        <p>Actualmente hay stock</p>
+        {% else %}
+        <p>Actualmente, nos quedamos sin stock</p>
+        {% endif %}
+        <a href="/sales/order/" class="btn btn-primary">Comprar</a>
+    </div>
+</div>
+{% endfor %}
 
 {% endblock %}

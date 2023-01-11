@@ -1,23 +1,23 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Categorias
+Categorias
 {% endblock %}
 
 {% block content %}
 
-    <h1>Los tipos de prenda que la pagina tiene disponible</h1>
+<h1>Los tipos de prenda que la pagina tiene disponible</h1>
 
-    {% for category in categories %}
+{% for category in categories %}
 
-        <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">{{category}} </h5>
-          <a href="/sales/order" class="card-link">Comprar</a>
-          <a href="/clothes/vender" class="card-link">Vender tus prendas</a>
-        </div>
-      </div>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{category}} </h5>
+    <a href="/sales/order" class="card-link" style="color:#9121d1;">Comprar</a>
+    <a href="/clothes/vender" class="card-link" style="color:#9121d1;">Vender tus prendas</a>
+  </div>
+</div>
 
-    {% endfor %}
+{% endfor %}
 
 {% endblock %}
