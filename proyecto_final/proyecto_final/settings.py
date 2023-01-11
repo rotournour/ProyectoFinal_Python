@@ -39,7 +39,7 @@ BASE_APPS = [
     'django.contrib.staticfiles',
 ]
 
-MY_APPS = [
+MY_APPS = [ 'clothes', 'sales',
 
 ]
 
