@@ -1,6 +1,6 @@
 Hola! Soy Rocio Tournour, tengo 25 años y soy Licenciada en Organización Industrial. Actualmente estoy desarrollando mi proyecto final de Python en Coderhouse.
 
-El proyecto en cuestion se llama Vintage Store, es una plataforma que fomenta la moda sostenible a traves de la compra y venta de prendas de segunda mano, permitiendo frenar la contaminacion textil con la reutilizacion de todas aquellas prendas que las personas no usan mas.
+El proyecto en cuestion se llama Vintage Store, es una plataforma que fomenta la moda sostenible a traves de la compra y venta de prendas de segunda mano, permitiendo combatir la contaminacion textil con la reutilizacion de todas aquellas prendas que las personas no usan mas.
 Para realizar el proyecto, se planteo el siguiente esquema en Django:
 1. Se realizo un proyecto con el nombre de proyecto_final donde contenia las configuraciones (settings.py) necesarias del proyecto, las vistas (views.py) con la creacion el index y las urls (urls.py) para mostrar la pagina hacia las personas.
 2. Para una mayor comprension y organizacion del proyecto, se plantearon dos aplicaciones (Sales y Clothes), donde las mismas fueron debidamente instaladas en las configuraciones del proyecto (settings.py) para comenzar a trabajar.
