@@ -9,9 +9,10 @@ Listado de productos
 <h1>Nuestras prendas disponibles!</h1>
 <h2><br> Queres publicar tus prendas? </br></h2> <a href="/clothes/vender/" class="btn btn-primary">Publicar</a>
 
-<h2><br>Actualmente tenemos las siguientes prendas en stock:</br></h2> 
+<h2><br>Actualmente tenemos las siguientes prendas en stock:</br></h2>
 {% for clothing in clothes %}
-<br><div class="card" style="width: 18rem;"></br>
+<br>
+<div class="card" style="width: 18rem;"></br>
     <div class="card-body">
         <h5 class="card-title">{{clothing.name}}</h5>
         <p class="card-text">Su categoria es <b>{{clothing.category}}</b></p>
