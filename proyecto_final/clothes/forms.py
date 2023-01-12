@@ -7,6 +7,6 @@ class ClothingForm(forms.Form):
     category = forms.ModelChoiceField(queryset= Type_Clothing.objects.all(), label= 'Categoria de la prenda')
     brand = forms.CharField(max_length= 50, label= 'Marca de la prenda')
     gender = forms.ModelChoiceField(queryset=Gender.objects.all(), label= 'Para quien es la prenda?')
-    new_clothing = forms.BooleanField(label= 'Tu prenda es nueva?')
+    new_clothing = forms.BooleanField(label= 'Tu prenda es nueva?', required=False)
     stock = forms.BooleanField(required=False)
     
