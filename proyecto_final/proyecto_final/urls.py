@@ -16,7 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from proyecto_final.views import index
-from clothes.views import create_clothing
 
 urlpatterns = [
     path('admin/', admin.site.urls),

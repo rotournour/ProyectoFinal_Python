@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Borrado de producto
+{% endblock %}
+
+{% block content %}
+
+    <h2>Borrar el producto</h2>
+    <p>Seguro que desea eliminar el producto?</p>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Si, borrar">
+        <a href="/clothes/listado_clothes/" class="btn btn-primary"  style="background-color: #9121d1; border: #9121d1;">Cancelar</a>
+    </form>
+
+
+{% endblock %}

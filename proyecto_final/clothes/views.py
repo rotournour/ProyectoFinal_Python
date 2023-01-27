@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from clothes.models import Clothes, Type_Clothing
 from clothes.forms import ClothingForm, ClothesCart
+from django.views.generic import DeleteView
+
 
 def create_clothing (request):
     if request.method == 'GET':
@@ -39,7 +41,7 @@ def list_categories(request):
     }
     return render(request, 'clothes/list_categories.html', context=context)
 
-def list_clothes(request):
+def list_and_buy(request):
     if request.method == 'GET':
         if 'search' in request.GET:
             search = request.GET['search']
@@ -103,4 +105,9 @@ def clothes_update(request, pk):
                 'form': ClothingForm()
             }
         return render(request, 'clothes/update_clothes.html', context=context)
+
+class ClothesDeleteView(DeleteView):
+    model = Clothes
+    template_name = 'clothes/delete_clothes.html'
+    success_url = '/clothes/listado_clothes/'
 
