@@ -61,13 +61,13 @@ def list_clothes(request):
             context = {
                 'message': 'Gracias por añadir el producto a tu carrito de compras! En breve nos pondremos en contacto contigo para procesar el pago :)'
             }
-            return render(request, 'clothes/list_clothes.html', context=context)
+            return render(request, 'sales/pay_order.html', context=context)
         else:
             context = {
                 'form_errors': form.errors,
                 'form': ClothesCart()
             }
-            return render(request, 'clothes/list_clothes.html', context=context)
+            return render(request, 'sales/pay_order.html', context=context)
 
 def clothes_update(request, pk):
     clothes = Clothes.objects.get(id=pk)

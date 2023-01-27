@@ -34,12 +34,14 @@ Listado de productos
 
             {{form.client}}
             {{form.type_payment}}
+
             <input type="hidden" name="cloth" value= "{{clothing.id}}" id="id_cloth">
             <input type="submit" class="btn btn-primary"  style="background-color:#9121d1; border: #9121d1;" value = 'Comprar'>
         </form>
         <a href="/clothes/update-clothes/{{clothing.pk}}/" class="btn btn-primary"  style="background-color:#9121d1; border: #9121d1;">Actualizar</a>
     </div>
 </div>
+
 {% endfor %}
 
 {% endblock %}
