@@ -1,8 +1,4 @@
 from django.contrib import admin
-from sales.models import Payment, Sales
+from sales.models import Payment
 
 admin.site.register (Payment)
-admin.site.register (Sales)
-
-class SalesAdmin(admin.ModelAdmin):
-    list_display = ('client', 'clothes_name', 'creation_time', 'payment')

@@ -1,5 +1,6 @@
 from django import forms
 from clothes.models import Gender, Type_Clothing
+from sales.models import Payment
 
 class ClothingForm(forms.Form):
     name = forms.CharField(max_length=100, label= 'Nombre de la prenda')
@@ -8,5 +9,8 @@ class ClothingForm(forms.Form):
     brand = forms.CharField(max_length= 50, label= 'Marca de la prenda')
     gender = forms.ModelChoiceField(queryset=Gender.objects.all(), label= 'Para quien es la prenda?')
     new_clothing = forms.BooleanField(label= 'Tu prenda es nueva?', required=False)
-    stock = forms.BooleanField(required=False)
     
+class ClothesCart(forms.Form):
+    client = forms.CharField(widget= forms.HiddenInput, initial = 1)
+    cloth = forms.IntegerField(widget= forms.HiddenInput, initial = 1)
+    type_payment = forms.ModelChoiceField(queryset=Payment.objects.all(), label = 'Medio de pago')

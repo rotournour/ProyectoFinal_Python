@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 from proyecto_final.views import index
 from clothes.views import create_clothing
-from sales.views import create_order
 
 urlpatterns = [
     path('admin/', admin.site.urls),

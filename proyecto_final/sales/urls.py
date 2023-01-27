@@ -1,7 +1,5 @@
-from django.urls import path, include
-
-from sales.views import create_order
+from django.urls import path
 
 
-urlpatterns = [
-    path('order/', create_order),]
+
+urlpatterns = []

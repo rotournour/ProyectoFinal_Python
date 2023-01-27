@@ -1,4 +1,6 @@
 from django.db import models
+from sales.models import Payment
+
 
 class Gender (models.Model):
     genders = models.CharField(max_length=10, null=True)
@@ -29,7 +31,9 @@ class Clothes (models.Model):
     gender = models.ForeignKey(Gender, null=True, blank=True, on_delete=models.CASCADE, verbose_name= "Genero de la prenda")
     brand = models.CharField(max_length=50, null=True, verbose_name= "Marca de la prenda")
     new_clothing = models.BooleanField (verbose_name= "Prenda nueva")
-    stock = models.BooleanField(default=False)
+    payment = models.ForeignKey(Payment, null=True, blank=True, on_delete=models.CASCADE, verbose_name= "Medio de pago" )
+    is_available = models.BooleanField(default=True)
+
     
     class Meta():
         db_table = "Clothes"
@@ -37,6 +41,10 @@ class Clothes (models.Model):
         verbose_name_plural = 'Clothes'
 
     def __str__(self):
-        return f'{self.name} - {self.price} - {self.category}' 
+        return f'{self.name} de marca {self.brand} con un precio de {self.price}'
     
+    def setUnavailable(self):
+        self.is_available = False
+
+
 
