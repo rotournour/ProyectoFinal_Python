@@ -6,4 +6,17 @@ Menu
 
 {% block content %}
 <h1>Home</h1>
+
+
+{{request.user}}
+
+
+
+{% if message %}
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">{{message}}</h4>
+    <p>Esperamos de todo corazón que te guste lo que tenemos para vos :)</p>
+</div>
+
+{% endif %}
 {% endblock %}

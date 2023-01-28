@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+<h1>Hola! Que bueno que quieras formar parte de VintageStore</h1>
+
+
+
+{% if form %}
+
+<form action="" method="POST">
+
+    {% csrf_token %}
+
+    <table>
+        {{form.as_table}}
+    </table>
+
+    {% if errors %}
+    <div class="alert alert-danger" role="alert">
+        {{errors}}
+    </div>
+    {% endif %}
+
+    <input type="submit" value="Registrarte">
+</form>
+{% endif %}
+
+{% endblock %}

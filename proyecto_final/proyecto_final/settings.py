@@ -39,7 +39,7 @@ BASE_APPS = [
     'django.contrib.staticfiles',
 ]
 
-MY_APPS = [ 'clothes', 'sales',
+MY_APPS = [ 'clothes', 'sales', 'users'
 
 ]
 
@@ -131,3 +131,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = '/users/login/'
