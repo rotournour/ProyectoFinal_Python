@@ -7,7 +7,10 @@ Listado de productos
 {% block content %}
 
 <h1>Nuestras prendas disponibles!</h1>
-<h2><br> Queres publicar tus prendas? </br></h2> <a href="/clothes/vender/" class="btn btn-primary" style="background-color:#9121d1; border: #9121d1;">Publicar</a>
+{% if request.user.is_authenticated %}
+    <h2><br> Queres publicar tus prendas? </br></h2> <a href="/clothes/vender/" class="btn btn-primary" style="background-color:#9121d1; border: #9121d1;">Publicar</a>
+{% endif %}
+
 
 <h2><br>Actualmente tenemos las siguientes prendas en stock:</br></h2>
 {% for clothing in clothes %}
@@ -28,7 +31,7 @@ Listado de productos
         {% else %}
         <p>Lo sentimos! La prenda ya se vendió</p>
         {% endif %}
-
+    {% if request.user.is_authenticated %}
         <form action="/clothes/listado_clothes/" method="POST">
             {% csrf_token %}
 
@@ -38,11 +41,13 @@ Listado de productos
             <input type="hidden" name="cloth" value= "{{clothing.id}}" id="id_cloth">
             <input type="submit" class="btn btn-primary"  style="background-color:#9121d1; border: #9121d1;" value = 'Comprar'>
         </form>
+    {% if request.user.is_superuser %}
         <a href="/clothes/update-clothes/{{clothing.pk}}/" class="btn btn-primary"  style="background-color:#9121d1; border: #9121d1;">Actualizar</a>
         <a href="/clothes/delete-clothes/{{clothing.pk}}/" class="btn btn-primary"  style="background-color: red; border: red;">Borrar</a>
     </div>
 </div>
-
+    {% endif %}
+    {% endif %}
 {% endfor %}
 
 {% endblock %}

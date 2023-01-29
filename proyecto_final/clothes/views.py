@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from clothes.models import Clothes, Type_Clothing
 from clothes.forms import ClothingForm, ClothesCart
 from django.views.generic import DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.decorators import user_passes_test
 
 
 def create_clothing (request):
@@ -71,6 +73,7 @@ def list_and_buy(request):
             }
             return render(request, 'sales/pay_order.html', context=context)
 
+@user_passes_test((lambda u: u.is_superuser))
 def clothes_update(request, pk):
     clothes = Clothes.objects.get(id=pk)
     if request.method == 'GET':
@@ -106,7 +109,14 @@ def clothes_update(request, pk):
             }
         return render(request, 'clothes/update_clothes.html', context=context)
 
-class ClothesDeleteView(DeleteView):
+
+class SuperUserRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):
+
+    def test_func(self):
+        return self.request.user.is_superuser
+
+
+class ClothesDeleteView(SuperUserRequiredMixin, DeleteView):
     model = Clothes
     template_name = 'clothes/delete_clothes.html'
     success_url = '/clothes/listado_clothes/'
