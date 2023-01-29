@@ -14,8 +14,10 @@ Categorias
 <div class="card" style="width: 18rem;"></br>
   <div class="card-body">
     <h5 class="card-title"><b>{{category}}</b></h5>
+    {% if request.user.is_authenticated %}
     <a href="/clothes/listado_clothes/" class="card-link" style="color:#9121d1;">Comprar</a>
-    <a href="/clothes/vender" class="card-link" style="color:#9121d1;">Vender tus prendas</a>
+    <a href="/clothes/create/" class="card-link" style="color:#9121d1;">Vender tus prendas</a>
+    {% endif %}
   </div>
 </div>
 

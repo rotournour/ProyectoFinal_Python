@@ -3,9 +3,9 @@ from clothes.models import Clothes, Type_Clothing
 from clothes.forms import ClothingForm, ClothesCart
 from django.views.generic import DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import user_passes_test, login_required
 
-
+@login_required
 def create_clothing (request):
     if request.method == 'GET':
         context = {
