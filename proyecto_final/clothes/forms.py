@@ -11,6 +11,6 @@ class ClothingForm(forms.Form):
     new_clothing = forms.BooleanField(label= 'Tu prenda es nueva?', required=False)
     
 class ClothesCart(forms.Form):
-    client = forms.CharField(max_length=100, label= 'Tu username: ')
+    buyer = forms.CharField(max_length=100, label= 'Tu username: ')
     cloth = forms.IntegerField(widget= forms.HiddenInput, initial = 1)
     type_payment = forms.ModelChoiceField(queryset=Payment.objects.all(), label = 'Medio de pago: ')

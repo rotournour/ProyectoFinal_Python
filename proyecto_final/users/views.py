@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
+from users.forms import RegisterForm, UserUpdateForm
 
 
 def user_login(request):
@@ -37,20 +38,45 @@ def user_login(request):
     
 def register(request):
     if request.method == 'GET':
-        form = UserCreationForm()
+        form = RegisterForm()
         context ={
             'form':form
         }
         return render(request, 'users/register.html', context=context)
 
     elif request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = RegisterForm(request.POST)
         if form.is_valid():
             form.save() 
             return redirect('login')
         
         context = {
             'errors':form.errors,
-            'form':UserCreationForm()
+            'form':RegisterForm()
         }
         return render(request, 'users/register.html', context=context)
+    
+    
+@login_required
+def update_user(request):
+    user = request.user
+    if request.method == 'GET':
+        form = UserUpdateForm(initial = {
+            'username':user.username
+        })
+        context ={
+            'form':form
+        }
+        return render(request, 'users/update.html', context=context)
+
+    elif request.method == 'POST':
+        form = UserUpdateForm(request.POST)
+        if form.is_valid():
+            user.username = form.cleaned_data.get('username')
+            return redirect('index')
+        
+        context = {
+            'errors':form.errors,
+            'form':RegisterForm()
+        }
+        return render(request, 'users/update.html', context=context)

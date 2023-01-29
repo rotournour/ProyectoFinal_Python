@@ -59,12 +59,12 @@ def list_and_buy(request):
         form = ClothesCart(request.POST)
         if form.is_valid():
             cloth = Clothes.objects.get(id=form.cleaned_data['cloth'])
-            cloth.client = form.cleaned_data['client']
+            cloth.buyer_username = form.cleaned_data['buyer']
             cloth.payment = form.cleaned_data['type_payment']
             cloth.setUnavailable()
             cloth.save()
             context = {
-                'message': f'Gracias por añadir el producto a tu carrito de compras {cloth.client} ! En breve nos pondremos en contacto contigo para procesar el pago :)'
+                'message': f'Gracias por añadir el producto a tu carrito de compras {cloth.buyer_username} ! En breve nos pondremos en contacto contigo mediante email para procesar el pago :)'
             }
             return render(request, 'sales/pay_order.html', context=context)
         else:

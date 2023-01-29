@@ -33,7 +33,7 @@ class Clothes (models.Model):
     new_clothing = models.BooleanField (verbose_name= "Prenda nueva")
     payment = models.ForeignKey(Payment, null=True, blank=True, on_delete=models.CASCADE, verbose_name= "Medio de pago" )
     is_available = models.BooleanField(default=True)
-    client = models.CharField (max_length=20, null = True, verbose_name= "Comprador")
+    buyer_username = models.CharField (max_length=20, null = True, verbose_name= "Comprador")
 
     
     class Meta():

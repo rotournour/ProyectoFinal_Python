@@ -4,7 +4,7 @@ from clothes.models import Clothes, Gender, Type_Clothing
 
 @admin.register(Clothes)
 class ClothesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'category', 'gender', 'payment', 'client', 'is_available')
+    list_display = ('name', 'category', 'gender', 'payment', 'buyer_username', 'is_available')
     search_fields = ('category',)
     list_filter = ('is_available',)
     
