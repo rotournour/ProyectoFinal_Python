@@ -3,7 +3,7 @@ from sales.models import Payment
 
 
 class Gender (models.Model):
-    genders = models.CharField(max_length=10, null=True)
+    genders = models.CharField(max_length=10, null=True, verbose_name= "Genero de la prenda")
     
     def __str__(self):
         return self.genders
@@ -14,7 +14,7 @@ class Gender (models.Model):
         verbose_name_plural = 'Genders'
 
 class Type_Clothing (models.Model):
-    categories= models.CharField(max_length=30)
+    categories= models.CharField(max_length=30, verbose_name= "Categoria de la prenda")
     
     class Meta():
         db_table = "Type_of_clothing"
@@ -33,6 +33,7 @@ class Clothes (models.Model):
     new_clothing = models.BooleanField (verbose_name= "Prenda nueva")
     payment = models.ForeignKey(Payment, null=True, blank=True, on_delete=models.CASCADE, verbose_name= "Medio de pago" )
     is_available = models.BooleanField(default=True)
+    client = models.CharField (max_length=20, null = True, verbose_name= "Comprador")
 
     
     class Meta():

@@ -35,8 +35,8 @@ Listado de productos
         <form action="/clothes/listado_clothes/" method="POST">
             {% csrf_token %}
 
-            {{form.client}}
-            {{form.type_payment}}
+            Tu username para procesar la compra : {{form.client}}
+            Medio de pago: {{form.type_payment}}
 
             <input type="hidden" name="cloth" value= "{{clothing.id}}" id="id_cloth">
             <input type="submit" class="btn btn-primary"  style="background-color:#9121d1; border: #9121d1;" value = 'Comprar'>

@@ -1,4 +1,8 @@
 from django.contrib import admin
 from sales.models import Payment
 
-admin.site.register (Payment)
+
+
+@admin.register(Payment)
+class PaymentAdmin(admin.ModelAdmin):
+    list_display = ('choices',)

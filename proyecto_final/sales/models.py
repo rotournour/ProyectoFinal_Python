@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Payment(models.Model):
-    choices = models.CharField(max_length=20)
+    choices = models.CharField(max_length=20, verbose_name= 'Medios de pago')
     
     class Meta():
         db_table = "Payment_method"
