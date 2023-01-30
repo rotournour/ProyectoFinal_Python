@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from clothes.models import Clothes, Type_Clothing
-from clothes.forms import ClothingForm, ClothesCart
+from clothes.forms import ClothForm, ClothesCart, UpdateCloth
 from django.views.generic import DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import user_passes_test, login_required
@@ -9,11 +9,11 @@ from django.contrib.auth.decorators import user_passes_test, login_required
 def create_clothing (request):
     if request.method == 'GET':
         context = {
-            'form': ClothingForm()}
+            'form': ClothForm()}
         return render(request,'clothes/create.html', context=context)
     
     elif request.method == 'POST':
-        form = ClothingForm(request.POST)
+        form = ClothForm(request.POST)
         if form.is_valid():
             Clothes.objects.create(
                 name=form.cleaned_data['name'],
@@ -31,7 +31,7 @@ def create_clothing (request):
         else:
             context = {
                 'form_errors': form.errors,
-                'form': ClothingForm()
+                'form': ClothForm()
             }
             return render(request, 'clothes/create.html', context=context)
         
@@ -79,14 +79,9 @@ def clothes_update(request, pk):
     clothes = Clothes.objects.get(id=pk)
     if request.method == 'GET':
         context = {
-            'form': ClothingForm(
+            'form': UpdateCloth(
                 initial={
-                    'name': clothes.name,
-                    'price': clothes.price,
-                    'category': clothes.category,
-                    'brand': clothes.brand,
-                    'gender': clothes.gender,
-                    'new_clothing': clothes.new_clothing,
+                    'price': clothes.price
                 }
             )
         }
@@ -94,25 +89,24 @@ def clothes_update(request, pk):
         return render(request, 'clothes/update_clothes.html', context=context)
 
     elif request.method == 'POST':
-        form = ClothingForm(request.POST)
+        form = UpdateCloth(request.POST)
         if form.is_valid():
             clothes.price = form.cleaned_data['price']
-            clothes.category = form.cleaned_data['category']
             clothes.save()
             
             context = {
-                'message': 'Genial! La prenda ha sido actualizada correctamente'
+                'message': 'Genial! El precio de la prenda ha sido actualizada correctamente'
             }
         else:
             context = {
                 'form_errors': form.errors,
-                'form': ClothingForm()
+                'form': UpdateCloth()
             }
         return render(request, 'clothes/update_clothes.html', context=context)
 
 
 class SuperUserRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):
-
+    
     def test_func(self):
         return self.request.user.is_superuser
 
