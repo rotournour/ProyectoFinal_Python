@@ -22,3 +22,5 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ['phone', 'birth_date', 'profile_picture']
+        labels = { 'phone': ('Número de telefono:' ), 'birth_date': ('Cual es tu fecha de nacimiento?:'), 'profile_picture' :('Foto de perfil:') }
+        
