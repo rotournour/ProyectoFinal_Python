@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Tu perfil
+{% endblock %}
+
+{% block content %}
+
+
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            {% if request.user.profile.profile_picture.url != '' %}
+            <img src="{{user.profile.profile_picture.url}}" class="img-fluid rounded-start" alt="...">
+            {% endif %}
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">Tu usuario: {{request.user.username}} </h5>
+                <p class="card-text">Tu nombre: {{request.user.profile.first_name}}</p>
+                <p class="card-text">Tu apellido: {{request.user.profile.last_name}}</p>
+                <p class="card-text">Tu fecha de nacimiento: {{request.user.profile.birth_date}}</p>
+                <p class="card-text">Tu telefono: {{request.user.profile.phone}}</p>
+                <a class="btn btn-primary"
+                style="background-color:#9121d1; color: white; border: 0px; position: relative; top: 20%; right: 5%;"
+                href="/users/update-profile" role="button">Modificar perfil</a>
+                <a class="btn btn-primary"
+                style="background-color:#9121d1; color: white; border: 0px; position: relative; top: 20%; right: 5%;"
+                href="/users/update-user" role="button">Modificar usuario</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        
+
+{% endblock %}

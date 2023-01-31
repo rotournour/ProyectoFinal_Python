@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from clothes.models import Clothes, Type_Clothing
-from clothes.forms import ClothForm, ClothesCart, UpdateCloth
+from clothes.forms import ClothesCart, UpdateCloth, ClothesForm
 from django.views.generic import DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import user_passes_test, login_required
@@ -9,11 +9,11 @@ from django.contrib.auth.decorators import user_passes_test, login_required
 def create_clothing (request):
     if request.method == 'GET':
         context = {
-            'form': ClothForm()}
+            'form': ClothesForm()}
         return render(request,'clothes/create.html', context=context)
     
     elif request.method == 'POST':
-        form = ClothForm(request.POST)
+        form = ClothesForm(request.POST, request.FILES)
         if form.is_valid():
             Clothes.objects.create(
                 name=form.cleaned_data['name'],
@@ -22,6 +22,7 @@ def create_clothing (request):
                 brand = form.cleaned_data['brand'],
                 gender = form.cleaned_data['gender'],
                 new_clothing = form.cleaned_data['new_clothing'],
+                cloth_picture = form.cleaned_data ['cloth_picture']
                 
             )
             context = {
@@ -31,7 +32,7 @@ def create_clothing (request):
         else:
             context = {
                 'form_errors': form.errors,
-                'form': ClothForm()
+                'form': ClothesForm()
             }
             return render(request, 'clothes/create.html', context=context)
         

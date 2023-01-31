@@ -7,7 +7,9 @@ from users.models import UserProfile
 class RegisterForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2']
+        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
+        labels = { 'username': ('Nombre de usuario' ), 'first_name': ('Nombre:'), 'last_name' :('Apellido:')}
+        
         
         
 
@@ -21,6 +23,6 @@ class UpdateForm(forms.ModelForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ['phone', 'birth_date', 'profile_picture']
-        labels = { 'phone': ('Número de telefono:' ), 'birth_date': ('Cual es tu fecha de nacimiento?:'), 'profile_picture' :('Foto de perfil:') }
+        fields = ['first_name', 'last_name', 'phone', 'birth_date', 'profile_picture']
+        labels = { 'first_name': 'Nombre ', 'last_name': 'Apellido:', 'phone': ('Número de telefono:' ), 'birth_date': ('Cual es tu fecha de nacimiento?:'), 'profile_picture' :('Foto de perfil:') }
         

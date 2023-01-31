@@ -2,13 +2,13 @@ from django import forms
 from clothes.models import Gender, Type_Clothing, Clothes
 from sales.models import Payment
 
-class ClothForm(forms.Form):
-    name = forms.CharField(max_length=100, label= 'Nombre de la prenda')
-    price = forms.FloatField(label= 'Precio')
-    category = forms.ModelChoiceField(queryset= Type_Clothing.objects.all(), label= 'Categoria de la prenda')
-    brand = forms.CharField(max_length= 50, label= 'Marca de la prenda')
-    gender = forms.ModelChoiceField(queryset=Gender.objects.all(), label= 'Para quien es la prenda?')
-    new_clothing = forms.BooleanField(label= 'Tu prenda es nueva?', required=False)
+    
+class ClothesForm(forms.ModelForm):
+    class Meta:
+        model = Clothes
+        fields = ['name', 'price', 'category', 'brand', 'gender', 'new_clothing', 'cloth_picture']
+        labels = { 'name': ('Nombre de la prenda:' ), 'price' : ('Precio:'), 'category' : ('Categoria de la prenda:'), 'brand' : ('Marca de la prenda:'), 'gender' : ('Para quien es la prenda?'), 'new_clothing' : ('La prenda es nueva?'), 'cloth_picture' : ('Sube una foto:') }
+    
     
     
 class UpdateCloth (forms.ModelForm):

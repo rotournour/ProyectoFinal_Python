@@ -34,6 +34,7 @@ class Clothes (models.Model):
     payment = models.ForeignKey(Payment, null=True, blank=True, on_delete=models.CASCADE, verbose_name= "Medio de pago" )
     is_available = models.BooleanField(default=True)
     buyer_username = models.CharField (max_length=20, null = True, verbose_name= "Comprador")
+    cloth_picture = models.ImageField(upload_to='clothes_images', null=True, blank=True)
 
     
     class Meta():

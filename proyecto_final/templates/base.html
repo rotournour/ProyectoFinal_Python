@@ -15,7 +15,7 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
                 <div style="width: 20%;">
-                    <a class="navbar-brand" href="/" style="color:#9121d1;"> <b>Vintage Store</b></a>
+                    <a class="navbar-brand mt-2 mt-lg-0" href="/"><img src="https://i.ibb.co/kM9RTwJ/Vintage-Store-without.png" alt="Vintage-Store-without" width="150" height="45" ></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -24,15 +24,15 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" style="position: relative; right: 130%; top: 10%"
+                            <a class="nav-link" style="position: relative; right: 120%; top: 10%"
                                 href="/clothes/listado_categories"> Categorias</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" style="position: relative; right: 80%; top: 10%" href="/clothes/create">
+                            <a class="nav-link" style="position: relative; right: 70%; top: 10%" href="/clothes/create">
                                 Publica tus prendas </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" style="position: relative; right: 100%; top: 10%"
+                            <a class="nav-link" style="position: relative; right: 80%; top: 10%"
                                 href="/clothes/listado_clothes"> Ropa disponible </a>
                         </li>
                         {% if request.user.is_authenticated %}
@@ -48,7 +48,7 @@
                                 Hola {{request.user.username}}!
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Mi perfil</a></li>
+                                <li><a class="dropdown-item" href="/users/my-profile">Mi perfil</a></li>
                                 <li><a class="dropdown-item" href="/users/update-user">Actualizar usuario</a></li>
                                 <li><a class="dropdown-item" href="/users/update-profile">Actualizar perfil</a></li>
                             </ul>
@@ -90,7 +90,7 @@
     <div class="container my-5">
         <!-- Footer -->
         <footer class="text-center text-lg-start text-dark"
-            style="background-color: #ECEFF1; position: relative; bottom: 0; width: 100%; left: 0; right: 0; ">
+            style="background-color: #ECEFF1; position: relative; bottom: 0; width: auto; ">
             <!-- Section: Social media -->
             <section class="d-flex justify-content-between p-4 text-white" style="background-color: #9121d1">
                 <!-- Left -->
