@@ -24,6 +24,10 @@
         </form>
     {% endif %}
 
+    {% if message %}
+    <div class="alert alert-success" role="alert">{{message}}</div>
+    {% endif %}
+    
     {% if errors %}
         {{errors}}
     {% endif %}

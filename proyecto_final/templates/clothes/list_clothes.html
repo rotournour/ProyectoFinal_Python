@@ -6,17 +6,19 @@ Listado de productos
 
 {% block content %}
 
-<h1>Nuestras prendas disponibles!</h1>
+<h1><p style="margin-left: 10px;">Nuestras prendas disponibles!</h1></p>
+
 {% if request.user.is_authenticated %}
 <h2><br> Queres publicar tus prendas? </br></h2> <a href="/clothes/create/" class="btn btn-primary"
-    style="background-color:#9121d1; border: #9121d1;">Publicar</a>
+    style="background-color:#e08385; border: white;">Publicar</a>
 {% endif %}
 
 
-<h2><br>Actualmente tenemos las siguientes prendas en stock:</br></h2>
+<h2><br><p style="margin-left: 10px;">Actualmente tenemos las siguientes prendas en stock:</br></h2>
+
 {% for clothing in clothes %}
 
-<div class="card" style="width: 18rem;"></br>
+<div class="card" style="width: 18rem; justify-content: center; left: 450px; width: 400px;"></br>
     {% if clothing.cloth_picture.url != '' %}
     <img src="{{clothing.cloth_picture.url}}" class="img-fluid rounded-start" alt="Clothes_pictures"
         width="1000%" height="1000%">
@@ -37,21 +39,23 @@ Listado de productos
         <br>
         <h5><u> Queres comprar la prenda?</u></h5>
         {% if request.user.is_authenticated %}
-        <form action="/clothes/listado_clothes/" method="POST">
+        <form action="/clothes/list-clothes/" method="POST">
             {% csrf_token %}
 
-            Tu username para procesar la compra : {{form.buyer}}
-            Medio de pago: {{form.type_payment}}
+            <p>Tu username para procesar la compra : {{form.buyer}}</p> 
+            <p>Medio de pago: {{form.type_payment}}</p> 
 
             <input type="hidden" name="cloth" value="{{clothing.id}}" id="id_cloth">
-            <input type="submit" class="btn btn-primary" style="background-color:#9121d1; border: #9121d1;"
+            <input type="submit" class="btn btn-primary" style="background-color:#e08385; border: white; width: 220px; display: block; margin-left: auto; margin-right: auto;"
                 value='Comprar'>
+                
         </form>
+        <br>
             {% if request.user.is_superuser %}
             <a href="/clothes/update-clothes/{{clothing.pk}}/" class="btn btn-primary"
-                style="background-color:#9121d1; border: #9121d1;">Actualizar precio</a>
+                style="background-color:#e08385; border: white; width: 220px; display: block; margin-left: auto; margin-right: auto;">Actualizar precio</a>
             <a href="/clothes/delete-clothes/{{clothing.pk}}/" class="btn btn-primary"
-                style="background-color: red; border: red;">Borrar</a>
+                style="background-color: red; border: red; display: block; width: 220px; margin-left: auto; margin-right: auto;">Borrar</a>
             {% endif %}
         {% endif %}
         {% else %}
@@ -59,7 +63,7 @@ Listado de productos
         {% endif %}
     </div>
 </div>
-
+<br><br>
 {% endfor %}
 
 {% endblock %}

@@ -5,13 +5,13 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Deseas actualizar el precio de la prenda anteriormente cargada?</h1>
+    <h1><p style="margin-left: 10px;">Deseas actualizar el precio de la prenda anteriormente cargada?</p></h1>
 
 
 
     {% if form %}
 
-        <form action="" method="POST">
+        <form action="" method="POST" style="margin-left: 10px;">
 
             {% csrf_token %}
 
@@ -21,6 +21,7 @@
 
 
             <input type="submit" value="Actualizar">
+        </p>
         </form>
     {% endif %}
 

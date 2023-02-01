@@ -87,7 +87,7 @@ def clothes_update(request, pk):
             )
         }
 
-        return render(request, 'clothes/update_clothes.html', context=context)
+        return render(request,'clothes/update_clothes.html', context=context)
 
     elif request.method == 'POST':
         form = UpdateCloth(request.POST)
@@ -115,5 +115,5 @@ class SuperUserRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):
 class ClothesDeleteView(SuperUserRequiredMixin, DeleteView):
     model = Clothes
     template_name = 'clothes/delete_clothes.html'
-    success_url = '/clothes/listado_clothes/'
+    success_url = '/clothes/list-clothes/'
 

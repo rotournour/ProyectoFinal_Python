@@ -77,7 +77,11 @@ def update_user(request):
         if form.is_valid():
             user.username = form.cleaned_data.get('username')
             user.save()
-            return redirect('index')
+            
+            context ={
+            'message': 'Gracias por actualizar tu usuario!'
+                }
+            return render(request, 'users/update_user.html', context=context)
         
         context = {
             'errors':form.errors,
@@ -110,7 +114,11 @@ def update_profile(request):
             user.profile.birth_date = form.cleaned_data.get('birth_date')
             user.profile.profile_picture = form.cleaned_data.get('profile_picture')
             user.profile.save()
-            return redirect('index')
+            
+            context ={
+            'message': 'Gracias por actualizar tu perfil!'
+                }
+            return render(request, 'users/update_profile.html', context=context )
         
         context = {
             'errors':form.errors,

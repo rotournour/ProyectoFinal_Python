@@ -33,7 +33,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" style="position: relative; right: 60%; top: 10%"
-                                href="/clothes/list-clothes"> Ropa disponible </a>
+                                href="/clothes/list-clothes/"> Ropa disponible </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" style="position: relative; right: 120%; top: 10%"
@@ -42,12 +42,12 @@
                         {% if request.user.is_authenticated %}
                         <li class="nav-item">
                             <a class="btn btn-primary"
-                                style="background-color:#9121d1; color: white; border: 0px; position: relative; top: 20%; right: 5%;"
+                                style="background-color:#f5b4b4; color: white; border: 0px; position: relative; top: 20%; right: 5%;"
                                 href="/users/logout" role="button">LogOut</a>
                         </li>
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle"
-                                style='position: relative; top: 20%; background-color:#9121d1; color: white; border: 0px;' type="button"
+                                style='position: relative; top: 20%; background-color:#e08385; color: white; border: 0px;' type="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Hola {{request.user.username}}!
                             </button>
@@ -60,23 +60,23 @@
                         {% else %}
                         <li class="nav-item">
                             <a class="btn btn-primary"
-                                style="background-color:#9121d1; color: white; border: 0px; position: relative; top: 20%; right: 2%"
+                                style="background-color:#f5b4b4; color: white; border: 0px; position: relative; top: 20%; right: 2%"
                                 href="/users/login" role="button">LogIn</a>
                         </li>
                         <li class="nav-item">
                             <a class="btn btn-primary"
-                                style="background-color:#9121d1; color: white; border: 0px; position: relative; top: 20%; left: 0%"
+                                style="background-color:#f5b4b4; color: white; border: 0px; position: relative; top: 20%; left: 0%"
                                 href="/users/signup" role="button">SignUp</a>
                         </li>
                         {% endif %}
                         <li class="navbar bg-body-tertiary">
                             <div class="container-fluid">
-                                <form class="d-flex" style="position: relative; left: 20%"
+                                <form class="d-flex" style="position: relative; left: 10%"
                                     action="/clothes/listado_clothes" method="GET">
-                                    <input class="form-control me-2" type="search" placeholder="Search"
+                                    <input class="form-control me-2" type="search" placeholder="Busca las prendas disponibles"
                                         aria-label="Search" name="search">
                                     <button class="btn btn-outline-success" type="submit"
-                                        style="background-color:#9121d1; color: white; border: 0px;">Search</button>
+                                        style="background-color: #f5b4b4; color: white; border: 0px;">Buscar</button>
                                 </form>
                             </div>
                     </ul>
@@ -96,35 +96,11 @@
         <footer class="text-center text-lg-start text-dark"
             style="background-color: #ECEFF1; position: relative; bottom: 0px; width: auto; ">
             <!-- Section: Social media -->
-            <section class="d-flex justify-content-between p-4 text-white" style="background-color: #9121d1">
+            <section class="d-flex justify-content-between p-4 text-white" style="background-color: #f5b4b4">
                 <!-- Left -->
                 <div class="me-5">
                     <span>Conectate con las redes de la tienda!</span>
                 </div>
-                <!-- Left -->
-
-                <!-- Right -->
-                <div>
-                    <a href="" class="text-white me-4">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="" class="text-white me-4">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="" class="text-white me-4">
-                        <i class="fab fa-google"></i>
-                    </a>
-                    <a href="" class="text-white me-4">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="" class="text-white me-4">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="" class="text-white me-4">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
-                <!-- Right -->
             </section>
             <!-- Section: Social media -->
 
@@ -138,7 +114,7 @@
                             <!-- Content -->
                             <h6 class="text-uppercase fw-bold">Vintage Store</h6>
                             <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                                style="width: 60px; background-color: #f5b4b4; height: 2px" />
                             <p>
                                 Somos una tienda que promueve la moda sostenible, permitiendote vender todas
                                 aquellas prendas que ya no uses para que alguien mas lo aproveche
@@ -151,18 +127,18 @@
                             <!-- Links -->
                             <h6 class="text-uppercase fw-bold">Productos</h6>
                             <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                                style="width: 60px; background-color: #f5b4b4; height: 2px" />
                             <p>
                                 <a href="/" class="text-dark">Menu principal</a>
                             </p>
                             <p>
-                                <a href="/clothes/listado_clothes" class="text-dark">Ropa disponible</a>
+                                <a href="/clothes/list-category" class="text-dark">Categorias</a>
+                            </p>
+                            <p>
+                                <a href="/clothes/list-clothes/" class="text-dark">Ropa disponible</a>
                             </p>
                             <p>
                                 <a href="/sales/order" class="text-dark">Hace tu compra!</a>
-                            </p>
-                            <p>
-                                <a href="/clothes/vender" class="text-dark">Vende tus prendas!</a>
                             </p>
                         </div>
                         <!-- Grid column -->
@@ -170,20 +146,11 @@
                         <!-- Grid column -->
                         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                             <!-- Links -->
-                            <h6 class="text-uppercase fw-bold">Links importantes</h6>
+                            <h6 class="text-uppercase fw-bold">La página</h6>
                             <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                                style="width: 60px; background-color: #e08385; height: 2px" />
                             <p>
-                                <a href="#!" class="text-dark"></a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-dark"></a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-dark"></a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-dark"></a>
+                                <a href="/about-me" class="text-dark"> Acerca de mi </a>
                             </p>
                         </div>
                         <!-- Grid column -->
@@ -193,7 +160,7 @@
                             <!-- Links -->
                             <h6 class="text-uppercase fw-bold">Contacto</h6>
                             <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                                style="width: 60px; background-color: #f5b4b4; height: 2px" />
                             <p><i class="fas fa-home mr-3"></i> Concepcion del Uruguay, Entre Rios</p>
                             <p><i class="fas fa-envelope mr-3"></i> info@vintagestore.com</p>
                             <p><i class="fas fa-phone mr-3"></i> </p>

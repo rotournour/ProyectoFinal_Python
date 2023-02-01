@@ -6,13 +6,13 @@
 
 {% block content %}
 
-    <h2>Borrar el producto</h2>
-    <p>Seguro que desea eliminar el producto?</p>
+    <h2> <p style="margin-left: 10px;">Borrar el producto</h2></p>
+    <p style="margin-left: 10px;"> Seguro que desea eliminar el producto?</p>
 
-    <form action="" method="POST">
+    <form action="" method="POST" style="margin-left: 10px;">
         {% csrf_token %}
         <input type="submit" value="Si, borrar">
-        <a href="/clothes/listado_clothes/" class="btn btn-primary"  style="background-color: #9121d1; border: #9121d1;">Cancelar</a>
+        <a href="/clothes/listado_clothes/" class="btn btn-primary"  style="background-color: #e08385; border: white;">Cancelar</a>
     </form>
 
 
