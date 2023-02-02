@@ -17,8 +17,10 @@ def create_clothing (request):
         if form.is_valid():
             Clothes.objects.create(
                 name=form.cleaned_data['name'],
+                seller_username = form.cleaned_data['seller_username'],
                 price=form.cleaned_data['price'],
                 category = form.cleaned_data['category'],
+                size = form.cleaned_data ['size'],
                 brand = form.cleaned_data['brand'],
                 gender = form.cleaned_data['gender'],
                 new_clothing = form.cleaned_data['new_clothing'],

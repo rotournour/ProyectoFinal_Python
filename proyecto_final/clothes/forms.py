@@ -6,8 +6,8 @@ from sales.models import Payment
 class ClothesForm(forms.ModelForm):
     class Meta:
         model = Clothes
-        fields = ['name', 'price', 'category', 'brand', 'gender', 'new_clothing', 'cloth_picture']
-        labels = { 'name': ('Nombre de la prenda:' ), 'price' : ('Precio:'), 'category' : ('Categoria de la prenda:'), 'brand' : ('Marca de la prenda:'), 'gender' : ('Para quien es la prenda?'), 'new_clothing' : ('La prenda es nueva?'), 'cloth_picture' : ('Sube una foto:') }
+        fields = ['name', 'seller_username', 'price', 'category', 'size', 'brand', 'gender', 'new_clothing', 'cloth_picture']
+        labels = { 'name': ('Nombre de la prenda:' ), 'seller_username': ('Usuario del vendedor'), 'price' : ('Precio:'), 'category' : ('Categoria de la prenda:'), 'size': ('Talle de la prenda'),  'brand' : ('Marca de la prenda:'), 'gender' : ('Para quien es la prenda?'), 'new_clothing' : ('La prenda es nueva?'), 'cloth_picture' : ('Sube una foto:') }
     
     
     
