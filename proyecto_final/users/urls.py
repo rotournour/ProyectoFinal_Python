@@ -9,7 +9,7 @@ urlpatterns = [
     path('signup/', register, name = 'register'),
     path('update-user/', update_user),
     path('update-profile/', update_profile),
-    path('my-profile', UserListView.as_view(template_name='users/my-profile.html') )
+    path('my-profile/', UserListView.as_view(template_name='users/my-profile.html') )
     
     ]
 
