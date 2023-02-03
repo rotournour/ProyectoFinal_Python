@@ -38,8 +38,8 @@ Listado de productos
         <p><b>La prenda esta disponible para su compra</b></p>
 
         <br>
-        <h5><u> Queres comprar la prenda?</u></h5>
         {% if request.user.is_authenticated %}
+        <h5><u> Queres comprar la prenda?</u></h5>
         <form action="/clothes/list-clothes/" method="POST">
             {% csrf_token %}
 
