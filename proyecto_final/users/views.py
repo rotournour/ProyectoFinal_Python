@@ -28,7 +28,7 @@ def user_login(request):
                 context = {
                     'message':f'Bienvenido/a a VintageStore {username}.'
                 }
-                return render(request, 'index.html', context=context)
+                return render(request, 'users/login.html', context=context)
 
         form = AuthenticationForm()
         context ={
